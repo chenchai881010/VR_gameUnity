@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68602d486ad6a644f97752f5c50d63dd, type: 3}
+  m_Name: CH3
+  m_EditorClassIdentifier: 
+  Class_ID: 3
+  Class_name: "\u5C71\u5761\u5730\u6FEB\u58BE"
+  Game_images:
+  - {fileID: 21300000, guid: 32b96732b6063b84286216bba13b7bd5, type: 3}
+  HowToPlay: "\u5927\u91CF\u7684\u958B\u767C\u5C0E\u81F4\u5C71\u5761\u5730\u6BCF\u9022\u5927\u96E8\u5C31\u6703\u6709\u571F\u77F3\u6D41\u3002\n\u8ACB\u4F60\u7528\u624B\u4E0A\u7684\u9B54\u6756\u6539\u5584\u5C71\u5761\u5730\u7684\u554F\u984C\u5427!\n"
+  Class_Introduction: "\u571F\u77F3\u6D41\u662F\u56E0\u70BA\u5C71\u5761\u5730\u7684\u6C34\u571F\u4FDD\u6301\u4E0D\u5B8C\u5584\u624D\u5C0E\u81F4\u7684\u7D50\u679C\u3002\n\u5229\u7528\u6DF1\u6839\u690D\u7269\u4F86\u907F\u514D\u6C34\u571F\u6D41\u5931\u7684\u7A98\u5883\u3002"
+  PlayScene: LV3_Game
