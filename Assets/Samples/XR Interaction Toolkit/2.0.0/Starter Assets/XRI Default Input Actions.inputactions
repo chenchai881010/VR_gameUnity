@@ -771,6 +771,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "confirm",
+                    "type": "Button",
+                    "id": "d2cb8093-2f7a-4c33-a191-08fe39a5e49d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1134,6 +1143,17 @@
                     "processors": "",
                     "groups": "Continuous Move",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4de94b80-edef-48a9-bb71-7e4e27506680",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
