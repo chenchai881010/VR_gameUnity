@@ -15,6 +15,6 @@ MonoBehaviour:
   tree_name: "\u9435\u6749"
   tree_type: "\u4E2D\u9AD8"
   point: 5
-  treeIntroduction: 
-  treeimage: {fileID: 21300000, guid: e08e1adb84e380a4c8324822e43ab895, type: 3}
+  treeIntroduction: "\u4E2D\u9AD8\u6D77\u62D4\u7684\u6DF1\u6839\u690D\u7269"
+  treeimage: {fileID: 21300000, guid: ffd9dfaadcd978d4584a8be6d6d73e2a, type: 3}
   treeModle: {fileID: 1741247899462161785, guid: 70e644275c3a1054ea580aaf59b2baeb, type: 3}
