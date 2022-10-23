@@ -24,6 +24,8 @@ public class WindManager : MonoBehaviour
     //------------遊戲主要設定------------------------------
     public static WindManager Instrance;
     public string using_type;
+    public WindModle my_Windsetting;//設定放置模型
+    public GameObject[] WindModles;//模型資料庫
     // Start is called before the first frame update
     private void Awake()
     {
@@ -91,14 +93,17 @@ public class WindManager : MonoBehaviour
             case "城市":
                 GameManager.Intrestance.step = 2;
                 GameManager.Intrestance.playAudio();
+                my_Windsetting = WindModles[0].GetComponent<WindModle>();
                 break;
             case "海邊":
                 GameManager.Intrestance.step = 3;
                 GameManager.Intrestance.playAudio();
+                my_Windsetting = WindModles[1].GetComponent<WindModle>();
                 break;
             case "沿岸":
                 GameManager.Intrestance.step = 4;
                 GameManager.Intrestance.playAudio();
+                my_Windsetting = WindModles[2].GetComponent<WindModle>();
                 break;
             default:
                 break;

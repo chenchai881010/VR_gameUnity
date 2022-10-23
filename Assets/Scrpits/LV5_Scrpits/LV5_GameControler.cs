@@ -11,6 +11,7 @@ public class LV5_GameControler : MonoBehaviour
     public GameObject player;
     public GameObject Plaform;
     public Transform fire_point;
+    public Transform wind_point;
     //-----------skybox設定--------------
     public Material sky;
     public Material Orange;
@@ -32,6 +33,11 @@ public class LV5_GameControler : MonoBehaviour
     private int playMod = 0;
     //---------實地查看點---------
     public GameObject[] seePoints;
+    public Text check_wind_text;
+    public GameObject know_Button;
+    bool redo = false;
+    public GameObject putGameCude;//設置點是否重設
+    
     
     // Start is called before the first frame update
     private void Awake()
@@ -52,7 +58,7 @@ public class LV5_GameControler : MonoBehaviour
     {
         hand_UItext.text = "火力發電";
         GameLV5_Canvas.GetComponent<Canvas>().enabled = false;
-        //移動到戰鬥位置
+        //移動到火力發電位置
         player.transform.position = fire_point.position;
         StartCoroutine(callhint("體驗舊式火力發電機，藉由用鏟子將燃料丟進爐中讓電力達到目標"));
         hand_ui.enabled = true;
@@ -67,8 +73,9 @@ public class LV5_GameControler : MonoBehaviour
     {
         hand_UItext.text = "風力發電";
         GameLV5_Canvas.GetComponent<Canvas>().enabled = false;
-        //移動到戰鬥位置
-        StartCoroutine(callhint("將各式風力發電機放在正確的位置"));
+        //移動到風力發電位置
+        player.transform.position = wind_point.position;
+        StartCoroutine(callhint("設計各式風力發電機並放在正確的位置"));
         hand_ui.enabled = true;
         fireView.SetActive(false);
         windView.SetActive(true);
@@ -96,7 +103,11 @@ public class LV5_GameControler : MonoBehaviour
     public void Knowledge_get()
     {
         wind.GetComponent<WindManager>().enabled = true;
-        knowtime++;
+        if (!redo)
+        {
+            knowtime++;
+        }
+        
         if (knowtime == 3)
         {
             Knowledge_view.SetActive(true);
@@ -126,11 +137,119 @@ public class LV5_GameControler : MonoBehaviour
             default:
                 break;
         }
+        Give_Suggest();
+    }
+    //檢測風機給予建議
+    public void Give_Suggest()
+    {
+        string elect_out;
+        redo=false;
+        string sug01 = "";
+        string sug02 = "";
+        string sug03 = "";
+        switch (text_title.text)
+        {
+            case "垂直軸風機":
+                elect_out = "正常";
+                if (WindManager.Instrance.my_Windsetting.Wind_head=="三葉式")
+                {
+                    sug01 = "選用垂直式。";
+                    redo = true;
+                }
+                switch (WindManager.Instrance.my_Windsetting.Wind_size)
+                {
+                    case "大":
+                    case "中":
+                        sug02 = "無風力、風向限制可使用短柱即可";
+                        redo = true;
+                        break;
+                    case "小":
+                        sug02 = "";
+                        break;
+                }
+                if (WindManager.Instrance.my_Windsetting.Wind_base == "需要")
+                {
+                    sug03 = "(無需安裝套筒)";
+                    redo = true;
+                }
+                check_wind_text.text = "發電量 : " + elect_out + "\n建議 : \n" + sug01 + sug02 + sug03;
+                break;
+            case "水平軸三葉式風機":
+                elect_out = "正常";
+                if (WindManager.Instrance.my_Windsetting.Wind_head== "垂直式")
+                {
+                    sug01 = "選用三葉式。";
+                    redo = true;
+                }
+                switch (WindManager.Instrance.my_Windsetting.Wind_size)
+                {
+                    case "大":
+                        sug02 = "可以選擇更適合此風機適合的中間柱";
+                        redo = true;
+                        break;
+                    case "小":
+                        elect_out = "少";
+                        sug02 = "三葉式有較大的扇葉需龐大的風力與風向才能啟用，可以選擇更適合此風機適合的中間柱";
+                        redo = true;
+                        break;
+                    case "中":
+                        sug02 = "";
+                        break;
+                }
+                if (WindManager.Instrance.my_Windsetting.Wind_base == "需要")
+                {
+                    sug03 = "(無需安裝套筒)";
+                    redo = true;
+                }
+                check_wind_text.text = "發電量 : " + elect_out + "\n建議 : \n" + sug01 + sug02 + sug03;
+                break;
+            case "套筒式離岸三葉式風機":
+                elect_out = "正常";
+                if (WindManager.Instrance.my_Windsetting.Wind_head == "垂直式")
+                {
+                    sug01 = "選用三葉式。";
+                    redo = true;
+                }
+                switch (WindManager.Instrance.my_Windsetting.Wind_size)
+                {
+                    case "大":
+                        sug02 = "";
+                        
+                        break;
+                    case "小":
+                        elect_out = "0";
+                        sug02 = "離岸三葉式有較大的扇葉需龐大的風力與風向才能啟用，運轉後也有大量噪音產生影響民眾，可以選擇更適合此風機適合的中間柱與位置";
+                        redo = true;
+                        break;
+                    case "中":
+                        elect_out = "0";
+                        sug02 = "離岸三葉式有較大的扇葉需龐大的風力與風向才能啟用，可以選擇更適合此風機適合的中間柱";
+                        redo = true;
+                        break;
+                }
+                if (WindManager.Instrance.my_Windsetting.Wind_base == "不需要")
+                {
+                    elect_out = "0";
+                    sug03 = "(需安裝套筒才能正常作用)";
+                    redo = true;
+                }
+                check_wind_text.text = "發電量 : " + elect_out + "\n建議 : \n" + sug01 + sug02 + sug03;
+                break;
+        }
+
+        //如果redo為真
+        if (redo)
+        {
+            putGameCude.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        
     }
     public void turnback()//回到原地
     {
         player.transform.parent = null;
         player.transform.position = Plaform.transform.position;
+        know_Button.SetActive(true);
     }
     public void endtest()
     {

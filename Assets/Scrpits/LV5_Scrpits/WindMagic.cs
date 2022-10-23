@@ -76,6 +76,7 @@ public class WindMagic : MonoBehaviour
     {
         line.enabled = true;
         openshoot = true;
+        particle.Play();
     }
     public void magic_unset()
     {
@@ -86,12 +87,13 @@ public class WindMagic : MonoBehaviour
         line.enabled = false;
         openshoot = false;
         gameObject.SetActive(false);
+        particle.Stop();
     }
     public void magic_shooting()
     {
         if (seleting)
         {
-            if (game_obj != null) //設置比對
+            if (game_obj != null) //設置選擇
             {
                     game_obj.GetComponent<Windseting>().setwind_elect();//
             }
