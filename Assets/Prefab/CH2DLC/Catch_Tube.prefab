@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7421461500519061924}
   - component: {fileID: 7421461500519061925}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Catch_Tube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,10 @@ PrefabInstance:
     - target: {fileID: 63145972875954682, guid: e62757fed321cc54189a08afc5a4b275, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351851756100799543, guid: e62757fed321cc54189a08afc5a4b275, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8936000870217376447, guid: e62757fed321cc54189a08afc5a4b275, type: 3}
       propertyPath: m_Name

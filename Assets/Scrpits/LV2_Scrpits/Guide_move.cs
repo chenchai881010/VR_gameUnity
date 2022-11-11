@@ -15,7 +15,9 @@ public class Guide_move : MonoBehaviour
     public GameObject[] teleRange;
     public Water_Clear _Clear;
     // Start is called before the first frame update
-    //河水顏色改變
+    //運作與放置汙泥
+    public Animator[] water_ani;
+    public GameObject[] durty;
     //播放介紹音訊
     private AudioSource m_audio;
     public AudioClip[] voices;
@@ -65,7 +67,15 @@ public class Guide_move : MonoBehaviour
             }
         }
     }
-
+    //二沉池處理
+    public void second_pool()
+    {
+        for (int i = 0; i < water_ani.Length; i++)
+        {
+            water_ani[i].SetBool("play", true);
+            durty[i].SetActive(true);
+        }
+    }
 
     //導覽結束
     public void endGuide()

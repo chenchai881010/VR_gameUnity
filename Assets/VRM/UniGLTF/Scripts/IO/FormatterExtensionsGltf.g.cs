@@ -214,10 +214,8 @@ namespace UniGLTF {
 
         if(false)
         {
-#pragma warning disable CS0162 // 偵測到執行不到的程式碼
-                f.Key("byteStride"); f.GenSerialize(value.byteStride);
-#pragma warning restore CS0162 // 偵測到執行不到的程式碼
-            }
+            f.Key("byteStride"); f.GenSerialize(value.byteStride);
+        }
 
         if(value.target!=0)
         {

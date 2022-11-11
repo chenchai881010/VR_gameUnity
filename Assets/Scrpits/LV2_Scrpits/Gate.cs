@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour
 {
+    //目標
     public Transform target;
     public bool gatebool;
+    //物件變化
     public GameObject[] show;
     public GameObject[] hide;
     public bool SceneGate;//跳轉門
     public string loadname;
+    public bool hintbool;//是否給提示
+    public string hintText;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +36,7 @@ public class Gate : MonoBehaviour
             else
             {
                 other.gameObject.transform.position = target.position;
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
                 if (gatebool)
                 {
                     for (int i = 0; i < show.Length; i++)
@@ -44,8 +48,19 @@ public class Gate : MonoBehaviour
                         hide[i].SetActive(false);
                     }
                 }
+                if (hintbool)
+                {
+                    StartCoroutine(callhint(hintText));
+                }
             }
             
         }
+    }
+    public IEnumerator callhint(string text)
+    {
+        GameManager.Intrestance.m_GameHint(text);
+        yield return new WaitForSeconds(4);
+        GameManager.Intrestance.m_StartGame();
+
     }
 }

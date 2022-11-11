@@ -17,6 +17,11 @@ TagManager:
   - Coal
   - GuidePoint
   - poolwater
+  - Destory
+  - Ground
+  - Pool
+  - waterClear
+  - microbe
   layers:
   - Default
   - TransparentFX

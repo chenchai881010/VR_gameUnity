@@ -15,8 +15,11 @@ public class RainBreaker : MonoBehaviour
     public Material Orange;
     public Material bark;
     public Light Sunlight;
-    
+    public GameObject Moutaion_Rain;//山上雨水模型
     public GameObject[] grounds;
+    //雨水系統
+    public ParticleSystem rain01;
+    public ParticleSystem rain02;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -80,12 +83,14 @@ public class RainBreaker : MonoBehaviour
         {
             grounds[1].SetActive(false);
         }
+        rain01.Play();
         Sunlight.color = Color.black;
         rain.CopyPropertiesFromMaterial(bark);
         gameObject.GetComponent<Animator>().SetBool("rain",true);
         if (WaterPower>5)
         {
-            StartCoroutine(moveriver());
+            rain02.Play();
+            StartCoroutine(waterup());
         }
         
     }
@@ -122,13 +127,15 @@ public class RainBreaker : MonoBehaviour
             WaterPower = 1;
         }
     }
-    public IEnumerator moveriver()
+
+    public IEnumerator waterup()
     {
-        yield return new WaitForSeconds(1f);
-        for (int i = 0; i < 32; i++)
+        while (Moutaion_Rain.transform.position.y<=0 &&TreeManager.Insterance.TreePoint<50)
         {
-            
+            Moutaion_Rain.transform.position += new Vector3(0, 0.5f, 0);
             yield return new WaitForSeconds(0.5f);
+
         }
+        
     }
 }

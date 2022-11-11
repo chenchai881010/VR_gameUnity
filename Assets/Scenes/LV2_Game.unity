@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3310731847441678145, guid: 43b5d05c79e1d3446b832401919e0e69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.432
       objectReference: {fileID: 0}
     - target: {fileID: 3310731847441678145, guid: 43b5d05c79e1d3446b832401919e0e69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -347,6 +347,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3310731847441678147, guid: 43b5d05c79e1d3446b832401919e0e69, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310731847441678147, guid: 43b5d05c79e1d3446b832401919e0e69, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3310731849041737127, guid: 43b5d05c79e1d3446b832401919e0e69, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -367,11 +375,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31101901}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 5.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &31101905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31101901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &33894393
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +618,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4625149807141257158, guid: a70f8f10f1d3c184594937085cdee01a, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625149807141257158, guid: a70f8f10f1d3c184594937085cdee01a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4625149807141257159, guid: a70f8f10f1d3c184594937085cdee01a, type: 3}
       propertyPath: _bottomH
       value: -0.3
@@ -620,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4625149807141257160, guid: a70f8f10f1d3c184594937085cdee01a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.496663
+      value: -11.48
       objectReference: {fileID: 0}
     - target: {fileID: 4625149807141257160, guid: a70f8f10f1d3c184594937085cdee01a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -686,11 +718,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58710743}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 4.79
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &58710747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58710743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &80833481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648349227565078805, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.432
       objectReference: {fileID: 0}
     - target: {fileID: 3648349227565078805, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1089,6 +1137,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 3648349227565078827, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648349227565078827, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3648349227565078826, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7eb623b4cf6a0f4e811d96ec1feed76, type: 3}
@@ -1105,11 +1161,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189649719}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.84
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &189649723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189649719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1001 &204830443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1614,6 +1686,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2628017506690961800, guid: f61d8f41996791742b5737491c623fb5, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628017506690961800, guid: f61d8f41996791742b5737491c623fb5, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2628017506690961802, guid: f61d8f41996791742b5737491c623fb5, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -1636,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2628017506690961802, guid: f61d8f41996791742b5737491c623fb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.432
       objectReference: {fileID: 0}
     - target: {fileID: 2628017506690961802, guid: f61d8f41996791742b5737491c623fb5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1702,11 +1782,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268651268}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &268651272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268651268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &269985508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +2004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605812776522924525, guid: 68e7597d32605cf48816f602c444db08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.87
+      value: -11.622
       objectReference: {fileID: 0}
     - target: {fileID: 1605812776522924525, guid: 68e7597d32605cf48816f602c444db08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1946,6 +2042,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1605812776522924527, guid: 68e7597d32605cf48816f602c444db08, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605812776522924527, guid: 68e7597d32605cf48816f602c444db08, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1605812776522924526, guid: 68e7597d32605cf48816f602c444db08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68e7597d32605cf48816f602c444db08, type: 3}
@@ -1962,11 +2066,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338195900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.16
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &338195904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338195900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &352351957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2351,7 +2471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6466179334535677644, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.432
       objectReference: {fileID: 0}
     - target: {fileID: 6466179334535677644, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2389,6 +2509,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6466179334535677646, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466179334535677646, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6466179334535677645, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2fbecf8dad0eb0142a6adfb57ba0b8ea, type: 3}
@@ -2405,11 +2533,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479594832}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.71
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &479594836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479594832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &501003873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2822,8 @@ MonoBehaviour:
   - {fileID: 290282558}
   SceneGate: 1
   loadname: LV2_Game_water
+  hintbool: 0
+  hintText: 
 --- !u!54 &581650705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4276,7 +4422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972915521100344289, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.432
       objectReference: {fileID: 0}
     - target: {fileID: 6972915521100344289, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4314,6 +4460,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6972915521100344291, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972915521100344291, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6972915521100344290, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2a96b9d81a760145bc87ed948d11e6b, type: 3}
@@ -4330,11 +4484,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957615424}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &957615428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957615424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5444,11 +5614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5201236301521499363, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.3866625
+      value: -11.43
       objectReference: {fileID: 0}
     - target: {fileID: 5201236301521499363, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.75
+      value: -4.265
       objectReference: {fileID: 0}
     - target: {fileID: 5201236301521499363, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5482,6 +5652,14 @@ PrefabInstance:
       propertyPath: _bottomH
       value: -0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5201236301521499373, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201236301521499373, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5201236301521499372, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: da10b182f9dd92440b3a8cf3ef812150, type: 3}
@@ -5498,11 +5676,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051667066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 4.79
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1051667070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051667066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &1069500036
 GameObject:
   m_ObjectHideFlags: 0
@@ -5746,7 +5940,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 141d9d6ca43b6c843965491604c6deff, type: 2}
+  - {fileID: 2100000, guid: 916475010b744cf46bb524f9c7e3b33b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7454,6 +7648,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1373209651278054496, guid: 4a0b63c336b798647b11a6119ebd608f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373209651278054496, guid: 4a0b63c336b798647b11a6119ebd608f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1373209651278054501, guid: 4a0b63c336b798647b11a6119ebd608f, type: 3}
       propertyPath: m_Name
       value: Garbage (5)
@@ -7488,7 +7690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373209651278054502, guid: 4a0b63c336b798647b11a6119ebd608f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.85
+      value: -11.602
       objectReference: {fileID: 0}
     - target: {fileID: 1373209651278054502, guid: 4a0b63c336b798647b11a6119ebd608f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7542,11 +7744,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454991860}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1454991864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454991860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &1463079539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,15 +9713,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.049999997
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.050000012
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.050000016
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9511,11 +9729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.68
+      value: -11.4
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1199994
+      value: -4.4439993
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9527,11 +9745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 2503300611013260215, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9553,6 +9771,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8642461387202633683, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642461387202633683, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3486786163849094894, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2b2b04862c158b6438daf215d2619d01, type: 3}
@@ -9569,11 +9795,27 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706904227}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1706904231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706904227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9acf8359e55342bebb960e2a211d0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 1072363043}
+  size: 0.01
+  amplitude: 0.03
+  overrideWaterMaterial: {fileID: 2100000, guid: d535c1b18ffe645a6bd12f9a4a59bf88, type: 2}
 --- !u!1 &1716916206
 GameObject:
   m_ObjectHideFlags: 0
@@ -9625,7 +9867,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 141d9d6ca43b6c843965491604c6deff, type: 2}
+  - {fileID: 2100000, guid: 916475010b744cf46bb524f9c7e3b33b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10244,7 +10486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944583509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.7856, y: -11.78, z: -1.9967}
+  m_LocalPosition: {x: 31.7856, y: -14.8, z: -1.9967}
   m_LocalScale: {x: 7.208773, y: 1, z: 6.953648}
   m_Children: []
   m_Father: {fileID: 0}
