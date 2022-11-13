@@ -5,38 +5,39 @@ using UnityEngine;
 public class CanShootDataContraller : MonoBehaviour
 {
     public Animator animator;
-    public int ClearPoint;
+    public bool noShoot;
     public bool mainClear;
+    public GameObject CarSetCheck;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        CarSetCheck = GameObject.Find("CarSetCheck");
     }
+    public void Set_Car_Side()//射線碰撞-臨檢停車
+    {
+        //複製車子到臨檢區
+        CarSetCheck.GetComponent<CarSetCheckLarry>().CarPutLarry(gameObject);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void BEclear()//射線碰撞
-    {
-        
+        //判定是否為違規車
         if (mainClear)
         {
-            GameContraller_LV1.Instrance.PollutionChange(ClearPoint);
-            GameContraller_LV1.Instrance.PlayerTimeChange(5);
+            GameContraller_LV1.Instrance.UI_update("Miss");
         }
-        else
-        {
-            animator.SetFloat("Mod", 1);
-            GameContraller_LV1.Instrance.ClearWorld(ClearPoint);
-        }
+        //回停車場
+        GetComponent<CarContraller>().isStop = true;
+        CarManager.Insterance.m_car_count--;
+        gameObject.transform.position = CarManager.Insterance.Park[GetComponent<CarContraller>().CarID].position;
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag("Bullet"))
         {
-            BEclear();
+            if (noShoot||GameContraller_LV1.Instrance.playing_Lv>=2)
+            {
+                return;
+            }
+            Set_Car_Side();
             Destroy(other.gameObject);
         }
     }

@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Intrestance;
     public Canvas gamecanvas;
-    public TextMeshProUGUI text;
     public Text hintText;
     public bool isPlaying;
     public GameObject[] teleportAreas;
     public Button exit_play;
     public Button try_again;
+    public Button Yes_Button;
     public Canvas HandUI;
 
     public AudioClip[] audioClips;
@@ -33,8 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame() //獲勝
     {
-        text.text = "汙染清除";
-        hintText.text = "";
+        hintText.text = "汙染清除";
         gamecanvas.enabled = true;
         isPlaying = false;
         exit_play.gameObject.SetActive(true);
@@ -44,7 +43,6 @@ public class GameManager : MonoBehaviour
     }
     public void m_WinGame(string hint) //獲勝(通用)
     {
-        text.text = "";
         hintText.text = hint;
         gamecanvas.enabled = true;
         isPlaying = false;
@@ -55,8 +53,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoseGame()  //失敗
     {
-        text.text = "清除失敗";
-        hintText.text = "";
+        hintText.text = "再接再厲";
         gamecanvas.enabled = true;
         isPlaying = false;
         exit_play.gameObject.SetActive(true);
@@ -66,8 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void m_StopGame() // 暫停
     {
-        text.text = "暫停中";
-        hintText.text = "";
+        hintText.text = "暫停中";
         gamecanvas.enabled = true;
         isPlaying = false;
         exit_play.gameObject.SetActive(false);
@@ -76,7 +72,6 @@ public class GameManager : MonoBehaviour
     }
     public void m_GameHint(string hint) // 提示
     {
-        text.text = "";
         hintText.text = hint;
         gamecanvas.enabled = true;
         isPlaying = false;
@@ -109,7 +104,10 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void Yes_Answer()//開啟確認鍵
+    {
+        Yes_Button.gameObject.SetActive(true);
+    }
 
     private void HIDE_TELEPORT()//隱藏傳送點
     {
@@ -125,7 +123,7 @@ public class GameManager : MonoBehaviour
             teleportAreas[i].SetActive(true);
         }
     }
-
+    
     public void playAudio()
     {
         m_source.clip = audioClips[step];

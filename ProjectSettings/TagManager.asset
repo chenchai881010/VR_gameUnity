@@ -22,6 +22,10 @@ TagManager:
   - Pool
   - waterClear
   - microbe
+  - OverCount
+  - Smoke
+  - CheckBan
+  - Car
   layers:
   - Default
   - TransparentFX

@@ -2,21 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class CARData
+{
+    public float CO;
+    public int HC;
+    public float CO2;
+}
 public class CarContraller : MonoBehaviour
 {
+
+    public string carType;//車種
+    public int CarID;
+    public CARData m_CarData;
+
+    //移動速度方向
+    public float speed = 1f;
     public bool isVertical;
     public bool isReturn;
-    public int CarID;
 
-    public float speed = 1f;
     public Animator animator;
     public bool isStop;
+    public Transform CarSet;//車距
     Vector3 movement;
+    //檢查中
+    public bool checking;
     // Start is called before the first frame update
     void Start()
     {
        
-        
     }
 
     // Update is called once per frame
@@ -84,22 +97,80 @@ public class CarContraller : MonoBehaviour
         gameObject.transform.position += movement * Time.deltaTime * speed;
 
     }
-    public void Ani_rechange()
+    public void Ani_rechange()//以亂數設置車的狀態
     {
-        animator.SetFloat("Mod",0);
+        if (carType == "摩托車")
+        {
+            m_CarData = new CARData
+            {
+                CO = Random.Range(1.5f, 6),
+                HC = Random.Range(1100, 1750),
+                CO2 = Random.Range(3, 12)
+            };
+            
+            if (m_CarData.CO > 3.5f || m_CarData.HC > 1600)//是否為違規車
+            {
+                GetComponent<CanShootDataContraller>().mainClear = false;
+                animator.SetFloat("Mod", 0);
+            }
+            else
+            {
+                GetComponent<CanShootDataContraller>().mainClear = true;
+                animator.SetFloat("Mod", 1);
+            }
+        }
+        else
+        {
+            m_CarData = new CARData
+            {
+                CO = Random.Range(0.45f, 2.11f),
+                HC = Random.Range(175, 320),
+                CO2 = Random.Range(9, 17)
+            };
+
+            if (m_CarData.CO > 1.2f || m_CarData.HC > 220)//是否為違規車
+            {
+                GetComponent<CanShootDataContraller>().mainClear = false;
+                animator.SetFloat("Mod", 0);
+            }
+            else
+            {
+                GetComponent<CanShootDataContraller>().mainClear = true;
+                animator.SetFloat("Mod", 1);
+            }
+        }
+        
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//回歸狀態
     {
         if ( other.CompareTag("StopLine"))
         {
             isStop = true;
-            if (animator.GetFloat("Mod")==0)
-            {
-                CarManager.Insterance.PullCount++;
-            }
-            CarManager.Insterance.carCount--;
+
+            CarManager.Insterance.m_car_count--;
             gameObject.transform.position = CarManager.Insterance.Park[CarID].position;
+        }
+        if (other.CompareTag("OverCount"))
+        {
+            GetComponent<CanShootDataContraller>().noShoot = true;
+            if (GetComponent<CanShootDataContraller>().mainClear == false)
+            {
+                GameContraller_LV1.Instrance.UI_update("Miss");
+                GetComponent<CanShootDataContraller>().mainClear = true;
+            }
+            
+        }
+        if (other.CompareTag("Bullet")) 
+        {
+            if (GameContraller_LV1.Instrance.playing_Lv>=2 && checking)
+            {
+                
+                StartCoroutine(CarManager.Insterance.CarChecking(this));
+            }
+            
         }
     }
 
 }
+
+

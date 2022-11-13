@@ -70,12 +70,20 @@ public class TeleportationManager : MonoBehaviour
     }
     private void OnTeleportActivate(InputAction.CallbackContext context)
     {
-        rayInteractor.enabled = true;
+        if (rayInteractor !=null)
+        {
+            rayInteractor.enabled = true;
+        }
+        
         _isActive = true;
     }
     private void OnTeleportCancel(InputAction.CallbackContext context)
     {
-        rayInteractor.enabled = false;
+        if (rayInteractor != null)
+        {
+            rayInteractor.enabled = false;
+        }
+        
         _isActive = false;
     }
 }

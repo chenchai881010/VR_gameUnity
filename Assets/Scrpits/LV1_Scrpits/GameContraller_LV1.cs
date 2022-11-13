@@ -7,28 +7,24 @@ using UnityEngine.UI;
 public class GameContraller_LV1 : MonoBehaviour
 {
     public static GameContraller_LV1 Instrance;
-
-    private int[] Player_time = new int[3] {120,90,60};
-    private float nexttime = 1;
-    private int[] Pollution_point = new int[3] { 180, 280, 480 };
-    
+     
     public int playing_Lv;//玩家階段
-
-    public int m_playerTime;
-    public int m_Pollution;
-   
-    public int m_Mask;
-    public Text hp_TIME;
-    public Image poll_Img;
-    public Text AQI_Point;
-    public Color[] AQI_colors;
-    public GameObject toBoss;//王關傳送門
+    public int m_playerTime;//時間計時
+    public int m_MissCar;//辨識錯誤數量
     public GameObject player;//玩家
-    public GameObject chimney;
-    [Space]
-    public GameObject lv2house;
-    public GameObject Factory;
-    public GameObject lv3house;
+    public GameObject Step2Point;//第二階段位置
+    //ui文字
+    public Text[] Step1_Texts;//0：時間 1：Miss次數
+    public Text[] Step2_Texts;//0:類型 1：CO 2：HC 3：CO2 4：偵測結果
+    public GameObject[] StepUI;//0：第一階段 1：第二階段
+    public Text check_OK;//確認正確量
+    public GameObject Knowledge;//知識視窗
+    public GameObject OverCount;
+    private float timeCount;
+    public bool Round2Start;
+    
+    //偵測數值
+    string carType;float COpoint;int HCpoint;float CO2point;string result;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -36,172 +32,136 @@ public class GameContraller_LV1 : MonoBehaviour
     }
     void Start()
     {
-        m_playerTime= Player_time[0];
-        m_Pollution = Pollution_point[0];
+        Round2Start = false;
         playing_Lv = 1;
-        toBoss.SetActive(false);
-        UI_update();
+        m_playerTime = 90;
+        m_MissCar = 0;
         rund_One_play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (nexttime<=0&&GameManager.Intrestance.isPlaying)
+        if (GameManager.Intrestance.isPlaying && playing_Lv==1)
         {
-            Poll_HP_Change();
-        }
-        else if (nexttime > 0 && GameManager.Intrestance.isPlaying)
-        {
-            nexttime -= Time.deltaTime;
-        }
-
-    }
-    private void UI_update()
-    {
-
-        if (m_Pollution>500)
-        {
-            m_Pollution = 500;
-        }
-        //hp_Bar.value = (float)m_playerhp / Player_HP;變更為時間
-        string m = (m_playerTime / 60).ToString();
-        string s = (m_playerTime % 60).ToString();
-        hp_TIME.text = m.PadLeft(2,'0') + ":" + s.PadLeft(2, '0');
-        if (m_Pollution <= 50)
-        {
-            poll_Img.color = AQI_colors[0];
-        }
-        else if (m_Pollution <= 100)
-        {
-            poll_Img.color = AQI_colors[1];
-        }
-        else if (m_Pollution <= 150)
-        {
-            poll_Img.color = AQI_colors[2];
-        }
-        else if (m_Pollution <= 200)
-        {
-            poll_Img.color = AQI_colors[3];
-        }
-        else if (m_Pollution <= 300)
-        {
-            poll_Img.color = AQI_colors[4];
-        }
-        else
-        {
-            poll_Img.color = AQI_colors[5];
-        }
-
-        AQI_Point.text =""+ m_Pollution;
-        FogDensityChange(m_Pollution);
-        ChekWINorLOSE();
-    }
-    public void PollutionChange(int PollPoint)//汙染值變化
-    {
-        m_Pollution += PollPoint;
-        if (m_Pollution<=0)
-        {
-            m_Pollution = 0;
-        }
-        UI_update();
-    }
-
-    public void PlayerTimeChange(int Timechange)//時間變化
-    {         
-        m_playerTime += Timechange;
-        UI_update();
-    }
-    public void Poll_HP_Change() //汙染值與血量變化
-    { 
-        PlayerTimeChange(-1);
-        nexttime = 1;
-    }
-    public void ClearWorld(int clearPoint )//清潔世界降低汙染值
-    {
-        
-            PollutionChange(-clearPoint);
-      
-    }
-
-    public void ChekWINorLOSE()//輸贏確認
-    {
-
-        if (m_playerTime>0&&m_Pollution<=50)
-        {
-            switch (playing_Lv)
+            if (Time.time - timeCount>1)
             {
-                case 1:
-                    playing_Lv++;
-                    rund_Two_play();
-                    GameManager.Intrestance.playAudio();
-                    break;
-                case 2:
-                    GameManager.Intrestance.m_GameHint("進到傳送門前往汙染源頭讓城市變乾淨吧!");
-                    
-                    toBoss.SetActive(true);
-                    toBoss.transform.position = player.transform.position + new Vector3(0, 0, 1.5f);
-                    playing_Lv++;
-                    GameManager.Intrestance.playAudio();
-                    break;
-                default:
-                    break;
+                timeCount = Time.time;
+                m_playerTime--;
+                UI_update("Time");
+                if (m_playerTime <= 0)
+                {
+                    UI_update("Change");
+                    StartCoroutine(rund_Two_play());
+                }
             }
-
         }
-        if (m_Pollution >50 && m_playerTime <= 0)
+        
+    }
+    public void UI_update(string ChangeItem)//ui變化
+    {
+        switch (ChangeItem)
         {
-            GameManager.Intrestance.LoseGame();
-
+            case "Time":
+                string min = (m_playerTime / 60).ToString().PadLeft(2, '0');
+                string sed = (m_playerTime % 60).ToString().PadLeft(2, '0');
+                Step1_Texts[0].text =min +"：" +sed;
+                break;
+            case "Miss":
+                m_MissCar++;
+                Step1_Texts[1].text =m_MissCar.ToString() ;
+                if (m_MissCar>=5)
+                {
+                    GameManager.Intrestance.LoseGame(); //結束遊戲(闖關失敗)
+                }
+                break;
+            case "Change":
+                playing_Lv++;
+                StepUI[0].SetActive(false);
+                StepUI[1].SetActive(true);
+                break;
+            case "Check":
+                Step2_Texts[0].text = carType;
+                Step2_Texts[1].text = COpoint.ToString("0.00")+" Vol%";//tostring("0.00")
+                Step2_Texts[2].text = HCpoint + " ppm";
+                Step2_Texts[3].text = CO2point.ToString("0.0") + " Vol%";//tostring("0.0")
+                Step2_Texts[4].text = result;
+                break;
+            default:
+                break;
         }
+    }
+
+
+    public void ChekWINorLOSE( int N)//輸贏確認
+    {
+        check_OK.text = "檢查正確數量：\n" + N;
+        if (N>=5)
+        {
+            GameManager.Intrestance.m_GameHint("你已成功檢查正確5輛車子了");
+            GameManager.Intrestance.Yes_Answer();
+        }
+       
+    }
+    public void step2_check(CarContraller m_Car)
+    {
+        carType = m_Car.carType;
+        COpoint = m_Car.m_CarData.CO;
+        HCpoint = m_Car.m_CarData.HC;
+        CO2point = m_Car.m_CarData.CO2;
+        switch (carType)
+        {
+            case "摩托車":
+                if (COpoint>3.5 || HCpoint>1600)
+                {
+                    result = "<color=#f00>不合格</color>";
+                }
+                else
+                {
+                    result = "<color=#0f0>合格</color>";
+                }
+
+                break;
+            default:
+                if (COpoint>1.2 || HCpoint>220)
+                {
+                    result = "<color=#f00>不合格</color>";
+                }
+                else
+                {
+                    result = "<color=#0f0>合格</color>";
+                }
+
+                break;
+        }
+        UI_update("Check");
     }
     public void rund_One_play()
     {
         
          //------------------提示並在5秒後開始
-        GameManager.Intrestance.m_GameHint("將城市的汙染源清理掉吧 \n 5秒後開始");
+        GameManager.Intrestance.m_GameHint("試著分辨烏賊車，在90秒內利用手上的魔法棒將烏賊車送到臨檢區 \n 5秒後開始");
         StartCoroutine(delayStart(5));
         GameManager.Intrestance.playAudio();
+        timeCount = Time.time;
     }
-
-    public void rund_Two_play()
+    public IEnumerator rund_Two_play()
     {
-        if (playing_Lv > 1)
-        {
-            m_playerTime = Player_time[1];
-
-            m_Pollution = Pollution_point[1];
-            UI_update();
-        }
-        GameManager.Intrestance.playAudio();
+        OverCount.SetActive(false);
+        GameManager.Intrestance.m_GameHint("時間到\n接下來會傳送到臨檢區");
+        GameManager.Intrestance.Yes_Answer();
+        yield return new WaitUntil(() =>Round2Start);
+        //移動到定點
+        Step2Point.SetActive(true);
+        player.transform.position = Step2Point.transform.GetChild(0).position;
         //------------------提示並在5秒後開始
-        GameManager.Intrestance.m_GameHint("開始有大車出現了 \n 3秒後開始");
-        StartCoroutine(delayStart(3));
-    }
-    public void rund_Three_play()
-    {
-        //---布置場景
-        lv2house.SetActive(false);
-        Factory.transform.localPosition = new Vector3(-66,0,24.5f);
-        lv3house.transform.localPosition = new Vector3(0, 0.45f, 0);
-        CarManager.Insterance.Call_Car_Bake();
-        //---關閉車子。垃圾。健康。---開啟煙囪管理員
-
-        //PollutionManager.Instance.gameObject.SetActive(false);
-        //HealthManager.Instance.gameObject.SetActive(false);
-        CarManager.Insterance.gameObject.SetActive(false);
-        chimney.SetActive(true);
+        GameManager.Intrestance.m_GameHint("來到臨檢區，利用廢氣分析裝置，看這些車子的排氣狀況給予意見 \n 5秒後開始");
+        GameObject.Find("CarSetCheck").GetComponent<CarSetCheckLarry>().Step2_Seting();
+        yield return delayStart(5);
+        GameManager.Intrestance.playAudio();
         
-        //-------------------設定血量，汙染值-----
-        m_playerTime = Player_time[2];
-
-        m_Pollution = Pollution_point[2];
-        UI_update();
-        //------------------提示並在5秒後開始
-        GameManager.Intrestance.m_GameHint("快把冒黑煙的煙囪處理掉吧 \n 5秒後開始");
-        GameManager.Intrestance.playAudio();
-        StartCoroutine(delayStart(5));
     }
+
     public IEnumerator delayStart(float startTime)//延遲開始
     {
         yield return new WaitForSeconds(startTime);
@@ -212,4 +172,14 @@ public class GameContraller_LV1 : MonoBehaviour
     {
         RenderSettings.fogDensity = (float)point * 0.0001f * 0.5f ;
     }
+    public void Round2() => Round2Start = true;
+    public void openKnowledge()
+    {
+        if (CarManager.Insterance.ok_Count==5)
+        {
+            Knowledge.SetActive(true);
+        }
+        
+    }
+
 }

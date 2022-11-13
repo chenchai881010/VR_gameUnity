@@ -63,7 +63,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &8531460360493580238
 MonoBehaviour:
@@ -106,7 +106,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8531460360493580234}
+        m_TargetAssemblyTypeName: Tube_Switch, Assembly-CSharp
+        m_MethodName: Turn_corn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -198,6 +210,8 @@ MonoBehaviour:
   - {fileID: 0}
   water_color: {fileID: 0}
   waterout: {fileID: 8531460361686068033}
+  st_turn: 0
+  targetAngels: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8531460361286992798
 GameObject:
   m_ObjectHideFlags: 0

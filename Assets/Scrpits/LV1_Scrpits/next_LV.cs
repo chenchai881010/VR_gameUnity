@@ -19,7 +19,7 @@ public class next_LV : MonoBehaviour
         {
             other.gameObject.transform.position = Telepost_point.position;
             main.gameObject.SetActive(false);
-            GameContraller_LV1.Instrance.rund_Three_play();
+
         }
     }
 }
