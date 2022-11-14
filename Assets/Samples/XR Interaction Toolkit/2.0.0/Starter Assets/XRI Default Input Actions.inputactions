@@ -594,32 +594,21 @@
                 {
                     "name": "",
                     "id": "bb14bc0d-d04b-48c7-976f-f155d88e8652",
-                    "path": "<XRController>/menuButton",
+                    "path": "<XRController>/menu",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "47a0a789-0b8d-4c4b-8bac-e8a886514e6d",
-                    "path": "<XRController>{LeftHand}/menu",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "99d7942f-bc16-4425-95f2-8bd22b5309a1",
+                    "id": "ffde838f-6a4d-47f3-aa05-5f3411cbf7ec",
                     "path": "<XRController>{LeftHand}/menuButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1163,7 +1152,7 @@
                     "path": "<XRController>{RightHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "confirm",
                     "isComposite": false,
                     "isPartOfComposite": false

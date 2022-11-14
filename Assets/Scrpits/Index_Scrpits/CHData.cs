@@ -15,4 +15,5 @@ public class CHData : ScriptableObject
     public string Class_Introduction;
 
     public string PlayScene;
+    public AudioClip CHvoice;
 }

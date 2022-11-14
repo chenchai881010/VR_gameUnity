@@ -274,6 +274,7 @@ namespace UniGLTF
             }
         }
 
+        [Obsolete]
         public IEnumerator ProcessOnMainThread(bool isLinear)
         {
             // tmp file

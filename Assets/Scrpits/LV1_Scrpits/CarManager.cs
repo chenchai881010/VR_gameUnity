@@ -199,10 +199,20 @@ public class CarManager : MonoBehaviour
                     break;
             }
         }
-        GameContraller_LV1.Instrance.ChekWINorLOSE(ok_Count);
-        
+
+        if (car.animator.GetFloat("Mod") == 1)
+        {
+            GameManager.Intrestance.step = 5;
+            GameManager.Intrestance.playAudio();
+        }
+        else
+        {
+            GameManager.Intrestance.step = 6;
+            GameManager.Intrestance.playAudio();
+        }
         car.isStop = false;
         yield return new WaitForSeconds(5);
+        GameContraller_LV1.Instrance.ChekWINorLOSE(ok_Count);
         carLarry.GetComponent<BoxCollider>().enabled = true;
         carLarry.GetComponent<CarSetCheckLarry>().Next_Car();
     }

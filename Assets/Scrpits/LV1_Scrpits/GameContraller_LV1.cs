@@ -98,7 +98,9 @@ public class GameContraller_LV1 : MonoBehaviour
         check_OK.text = "檢查正確數量：\n" + N;
         if (N>=5)
         {
-            GameManager.Intrestance.m_GameHint("你已成功檢查正確5輛車子了");
+            GameManager.Intrestance.m_GameHint("恭喜!\n你已成功改善五輛車輛並幫助我們恢復良好的空氣品質了!");
+            GameManager.Intrestance.step = 7;
+            GameManager.Intrestance.playAudio();
             GameManager.Intrestance.Yes_Answer();
         }
        
@@ -115,10 +117,14 @@ public class GameContraller_LV1 : MonoBehaviour
                 if (COpoint>3.5 || HCpoint>1600)
                 {
                     result = "<color=#f00>不合格</color>";
+                    GameManager.Intrestance.step = 3;
+                    GameManager.Intrestance.playAudio();
                 }
                 else
                 {
                     result = "<color=#0f0>合格</color>";
+                    GameManager.Intrestance.step = 4;
+                    GameManager.Intrestance.playAudio();
                 }
 
                 break;
@@ -126,10 +132,14 @@ public class GameContraller_LV1 : MonoBehaviour
                 if (COpoint>1.2 || HCpoint>220)
                 {
                     result = "<color=#f00>不合格</color>";
+                    GameManager.Intrestance.step = 3;
+                    GameManager.Intrestance.playAudio();
                 }
                 else
                 {
                     result = "<color=#0f0>合格</color>";
+                    GameManager.Intrestance.step = 4;
+                    GameManager.Intrestance.playAudio();
                 }
 
                 break;
@@ -140,8 +150,8 @@ public class GameContraller_LV1 : MonoBehaviour
     {
         
          //------------------提示並在5秒後開始
-        GameManager.Intrestance.m_GameHint("試著分辨烏賊車，在90秒內利用手上的魔法棒將烏賊車送到臨檢區 \n 5秒後開始");
-        StartCoroutine(delayStart(5));
+        GameManager.Intrestance.m_GameHint("這座城市因汽機車黑煙排放，因此有著嚴重的空氣汙染，請於90秒內利用手上的魔法棒選取再路上排放黑煙的汽機車，幫助我們淨化這座城市 ");
+        StartCoroutine(delayStart(14));
         GameManager.Intrestance.playAudio();
         timeCount = Time.time;
     }
@@ -149,16 +159,19 @@ public class GameContraller_LV1 : MonoBehaviour
     {
         OverCount.SetActive(false);
         GameManager.Intrestance.m_GameHint("時間到\n接下來會傳送到臨檢區");
+        GameManager.Intrestance.step = 1;
+        GameManager.Intrestance.playAudio();
         GameManager.Intrestance.Yes_Answer();
         yield return new WaitUntil(() =>Round2Start);
         //移動到定點
         Step2Point.SetActive(true);
         player.transform.position = Step2Point.transform.GetChild(0).position;
-        //------------------提示並在5秒後開始
-        GameManager.Intrestance.m_GameHint("來到臨檢區，利用廢氣分析裝置，看這些車子的排氣狀況給予意見 \n 5秒後開始");
-        GameObject.Find("CarSetCheck").GetComponent<CarSetCheckLarry>().Step2_Seting();
-        yield return delayStart(5);
+        //------------------下一階段開始
+        GameManager.Intrestance.m_GameHint("請觀看檢驗站說明幫忙改善五輛排放黑煙的汽機車吧!");
         GameManager.Intrestance.playAudio();
+        GameObject.Find("CarSetCheck").GetComponent<CarSetCheckLarry>().Step2_Seting();
+        yield return delayStart(6);
+        
         
     }
 

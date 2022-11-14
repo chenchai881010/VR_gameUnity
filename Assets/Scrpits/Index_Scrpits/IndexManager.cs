@@ -102,4 +102,12 @@ public class IndexManager : MonoBehaviour
     {
         LearnWay.Instrance.OpenData();
     }
+    //¼½³æ¤¸¤¶²Ð
+    public void playAudioCH()
+    {
+        GameManager.Intrestance.m_source.clip = cHDatas[dataID].CHvoice;
+        //Debug.Log(step);
+        GameManager.Intrestance.m_source.Play();
+        
+    }
 }
